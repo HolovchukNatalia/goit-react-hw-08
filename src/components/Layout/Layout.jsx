@@ -4,13 +4,14 @@ import RouteList from "../RouteList/RouteList";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <>
       <AppBar />
       <Container maxWidth="lg">
         <Box component="main" sx={{ mt: 4 }}>
-          <RouteList />
+          {/* <RouteList /> */}
+          {children}
         </Box>
       </Container>
     </>

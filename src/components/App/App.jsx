@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { refreshUser } from "../../redux/auth/operations";
 import { selectIsRefresh } from "../../redux/auth/selectors";
 import Loader from "../Loader/Loader";
+import RouteList from "../RouteList/RouteList";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ function App() {
     <>
       <Toaster position="top-right" />
       {isRefreshing && <Loader />}
-      <Layout />
+      <Layout>
+        <RouteList />
+      </Layout>
     </>
   );
 }

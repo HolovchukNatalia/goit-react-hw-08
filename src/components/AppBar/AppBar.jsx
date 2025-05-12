@@ -5,7 +5,7 @@ import AuthNav from "../AuthNav/AuthNav";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
-import AppBar from "@mui/material/AppBar";
+import MuiAppBar from "@mui/material/AppBar"; // перейменовано
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -17,12 +17,12 @@ const theme = createTheme({
   },
 });
 
-const AppBarComponent = () => {
+const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar
+      <MuiAppBar
         position="static"
         sx={{ backgroundColor: "#407a19", fontFamily: "'Poppins', sans-serif" }}
         enableColorOnDark
@@ -50,9 +50,9 @@ const AppBarComponent = () => {
             </Box>
           </Toolbar>
         </Container>
-      </AppBar>
+      </MuiAppBar>
     </ThemeProvider>
   );
 };
 
-export default AppBarComponent;
+export default AppBar;
