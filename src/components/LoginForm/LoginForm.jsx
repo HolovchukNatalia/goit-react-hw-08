@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import styles from "./LoginForm.module.css";
+import useToast from "../../hooks/useToast";
 
 const initialValues = {
   email: "",
@@ -19,7 +20,7 @@ const validationSchema = Yup.object({
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-
+  const { showError } = useToast();
   const emailId = useId();
   const passwordId = useId();
 
@@ -33,6 +34,8 @@ const LoginForm = () => {
       ).unwrap();
       actions.resetForm();
     } catch (error) {
+      showError("Login failed. Please check your credentials.");
+
       const serverErrors = {};
       if (error.email) {
         serverErrors.email = error.email.message;
@@ -40,6 +43,7 @@ const LoginForm = () => {
       if (error.password) {
         serverErrors.password = error.password.message;
       }
+      actions.setErrors(serverErrors);
     }
   };
   return (
