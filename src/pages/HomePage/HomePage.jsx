@@ -19,9 +19,6 @@ const HomePage = () => {
         <Link to="/register" className={styles.button}>
           Register
         </Link>
-        <Link to="/contacts" className={styles.button}>
-          Contacts
-        </Link>
       </div>
     </div>
   );
