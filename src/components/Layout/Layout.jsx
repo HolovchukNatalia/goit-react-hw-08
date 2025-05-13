@@ -10,7 +10,6 @@ const Layout = ({ children }) => {
       <AppBar />
       <Container maxWidth="lg">
         <Box component="main" sx={{ mt: 4 }}>
-          {/* <RouteList /> */}
           {children}
         </Box>
       </Container>
